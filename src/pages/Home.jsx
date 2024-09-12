@@ -95,7 +95,7 @@ const Home = () => {
         <Button 
           variant="contained" 
           color="primary" 
-          href="/assets/attachments/Edgar_Ulises_Martinez_Tovar.pdf" 
+          href="/Portafolio/#/assets/attachments/Edgar_Ulises_Martinez_Tovar.pdf" 
           download="Edgar_Ulises_Martinez_Tovar.pdf"
           startIcon={<FaDownload />}
         >
@@ -104,7 +104,7 @@ const Home = () => {
         <Button 
           variant="contained" 
           color="secondary" 
-          href="/contact"
+          href="/Portafolio/#/contact"
           startIcon={<FaEnvelope />}
         >
           Contacto
