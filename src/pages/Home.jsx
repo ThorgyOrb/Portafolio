@@ -92,15 +92,15 @@ const Home = () => {
       <Title>Edgar Ulises Martinez Tovar</Title>
       <Description>Desarrollador Full Stack.</Description>
       <ButtonWrapper>
-        <Button 
-          variant="contained" 
-          color="primary" 
-          href="/Portafolio/#/assets/attachments/Edgar_Ulises_Martinez_Tovar.pdf" 
-          download="Edgar_Ulises_Martinez_Tovar.pdf"
-          startIcon={<FaDownload />}
-        >
-          Descargar CV
-        </Button>
+      <Button 
+  variant="contained" 
+  color="primary" 
+  href={`${process.env.PUBLIC_URL}/assets/attachments/Edgar_Ulises_Martinez_Tovar.pdf`} 
+  download="Edgar_Ulises_Martinez_Tovar.pdf"
+  startIcon={<FaDownload />}
+>
+  Descargar CV
+</Button>
         <Button 
           variant="contained" 
           color="secondary" 
