@@ -2,12 +2,19 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FaDownload, FaEnvelope } from 'react-icons/fa';
 import Button from '@mui/material/Button';
+import '../App.css';
 
-// Animación de degradado
-const gradientAnimation = keyframes`
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+// Animación de brillo
+const shineAnimation = keyframes`
+  0% {
+    background-position: -200%;
+  }
+  50% {
+    background-position: 200%;
+  }
+  100% {
+    background-position: -200%;
+  }
 `;
 
 const Container = styled.div`
@@ -19,22 +26,24 @@ const Container = styled.div`
   background-color: #121212;
   color: #ffffff;
   text-align: center;
-  overflow: hidden; /* Evita barras de desplazamiento */
+  overflow: hidden;
   position: relative;
 `;
 
 const Title = styled.h1`
   font-size: 4rem;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, rgba(255, 105, 180, 1), rgba(0, 191, 255, 1), rgba(138, 43, 226, 1), rgba(255, 105, 180, 1));
-  background-size: 600% 600%;
-  animation: ${keyframes`
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-  `} 10s ease infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.3) 25%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.3) 75%
+  );
+  background-size: 200% auto;
+  animation: ${shineAnimation} 20s linear infinite; 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: 'Helvetica Neue'; 
 `;
 
 const Description = styled.p`
@@ -61,7 +70,6 @@ const meteorShower = keyframes`
   }
 `;
 
-// Estilos para los meteoros
 const Meteor = styled.div`
   position: absolute;
   width: 2px;
@@ -74,7 +82,6 @@ const Meteor = styled.div`
 `;
 
 const Home = () => {
-  // Generar un array de meteoros
   const meteors = Array.from({ length: 20 }, (_, i) => (
     <Meteor key={i} delay={Math.random() * 10} left={Math.random() * 100} />
   ));

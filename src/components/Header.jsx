@@ -53,19 +53,42 @@ const ToggleButton = styled.button`
   position: fixed;
   top: 20px;
   left: ${props => (props.open ? '250px' : '10px')};
-  transition: left 0.3s ease;
+  transition: left 0.3s ease, filter 0.3s ease;
   background-color: #333;
   color: #fff;
   border: none;
   padding: 10px;
   cursor: pointer;
   z-index: 1100;
-  border-radius: 5px; /* Bordes redondeados para el botón */
-  
+  border-radius: 5px;
+  position: absolute;
+
+  /* Aplicamos un brillo por defecto cuando no está en hover */
+  filter: brightness(1) drop-shadow(2px 2px 2px #888);
+
+  /* Animación de brillo constante */
+  animation: glow 1.5s ease-in-out infinite alternate;
+
+  /* Al pasar el ratón, se detiene la animación y se fija el brillo directo */
   &:hover {
     background-color: #444;
+    animation: none;
+    filter: brightness(1.5) drop-shadow(5px 5px 10px #fff);
+  }
+
+  /* Definición de la animación de brillo */
+  @keyframes glow {
+    from {
+      /* Menos brillo en la animación */
+      filter: brightness(1) drop-shadow(2px 2px 5px #666);
+    }
+    to {
+      /* Más brillo en la animación */
+      filter: brightness(1.3) drop-shadow(4px 4px 8px #bbb);
+    }
   }
 `;
+
 
 const Layout = styled.div`
   display: flex;

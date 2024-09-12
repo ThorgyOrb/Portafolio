@@ -1,22 +1,108 @@
 import React from 'react';
+import styled, { keyframes, css } from 'styled-components';
 import ProjectCard from '../components/ProjectCard';
+import { FaProjectDiagram } from 'react-icons/fa';
+
+// Animación de brillo del título
+const shineAnimation = keyframes`
+  0% {
+    background-position: -200%;
+  }
+  50% {
+    background-position: 200%;
+  }
+  100% {
+    background-position: -200%;
+  }
+`;
+
+const meteorShower = keyframes`
+  0% {
+    transform: translate(100vw, -100vh) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100vw, 100vh) rotate(45deg);
+    opacity: 0;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 91.3vh;
+  background-color: #121212;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem;
+`;
+
+const Title = styled.h2`
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.3) 25%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.3) 75%
+  );
+  background-size: 200% auto;
+  animation: ${shineAnimation} 20s linear infinite; 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Helvetica Neue'; 
+`;
+
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 1rem;
+`;
+
+const Meteor = styled.div`
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(45deg, #fff, rgba(255, 255, 255, 0));
+  ${({ delay, left }) => css`
+    animation: ${meteorShower} 12s linear infinite;
+    animation-delay: ${delay}s;
+    left: ${left}%;
+  `}
+  opacity: 0;
+`;
 
 const Projects = () => {
   const projectList = [
-    { title: 'Project 1', description: 'Description of Project 1', link: 'https://github.com/username/project1' },
+    { title: 'Project 1', description: 'Description of Project 1', link: '/invoicescontrol' },
     { title: 'Project 2', description: 'Description of Project 2', link: 'https://github.com/username/project2' },
     // Añade más proyectos según sea necesario
   ];
 
+  const meteors = Array.from({ length: 20 }, (_, i) => (
+    <Meteor key={i} delay={Math.random() * 10} left={Math.random() * 100} />
+  ));
+
   return (
-    <div className="projects">
-      <h2>My Projects</h2>
-      <div className="project-grid">
+    <Container>
+      {meteors}
+      <Title>My Projects</Title>
+      <ProjectGrid>
         {projectList.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
-      </div>
-    </div>
+      </ProjectGrid>
+    </Container>
   );
 };
 
