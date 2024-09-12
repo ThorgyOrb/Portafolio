@@ -84,7 +84,7 @@ const Meteor = styled.div`
 
 const Projects = () => {
   const projectList = [
-    { title: 'Project 1', description: 'Description of Project 1', link: '/#/invoicescontrol' },
+    { title: 'Project 1', description: 'Description of Project 1', link: '/Portafolio/#/invoicescontrol' },
     { title: 'Project 2', description: 'Description of Project 2', link: 'https://github.com/username/project2' },
     // Añade más proyectos según sea necesario
   ];
