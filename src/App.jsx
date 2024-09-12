@@ -17,7 +17,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/invoicescontrol" element={<InvoicesControl />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }
