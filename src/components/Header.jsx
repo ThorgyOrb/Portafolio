@@ -105,13 +105,13 @@ const App = () => {
     <Layout>
       <Sidebar open={sidebarOpen}>
         <SidebarTitle>MyPortfolio</SidebarTitle>
-        <SidebarLink href="/" onClick={handleLinkClick} $active={window.location.pathname === '/'}>
+        <SidebarLink href="/#/Portafolio" onClick={handleLinkClick} $active={window.location.pathname === '/'}>
           Home
         </SidebarLink>
-        <SidebarLink href="/projects" onClick={handleLinkClick} $active={window.location.pathname === '/projects'}>
+        <SidebarLink href="/#/projects" onClick={handleLinkClick} $active={window.location.pathname === '/projects'}>
           Projects
         </SidebarLink>
-        <SidebarLink href="/contact" onClick={handleLinkClick} $active={window.location.pathname === '/contact'}>
+        <SidebarLink href="/#/contact" onClick={handleLinkClick} $active={window.location.pathname === '/contact'}>
           Contact
         </SidebarLink>
       </Sidebar>
