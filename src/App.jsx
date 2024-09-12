@@ -1,12 +1,13 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import InvoicesControl from './pages/InvoicesControl';
+
 function App() {
   return (
     <Router>
@@ -15,8 +16,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/invoicescontrol" element={<InvoicesControl/>} />
+        <Route path="/invoicescontrol" element={<InvoicesControl />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
