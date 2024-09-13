@@ -6,10 +6,24 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Header from './components/Header';
 import InvoicesControl from './pages/InvoicesControl';
+import { createGlobalStyle } from 'styled-components';
+const GlobalStyle = createGlobalStyle`
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
 
+  #root {
+    width: 100%;
+    height: 100%;
+  }
+`;
 function App() {
   return (
     <Router>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
