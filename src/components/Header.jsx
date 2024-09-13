@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -43,7 +44,7 @@ const NavLinks = styled.nav`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   padding: 10px;
   text-decoration: none;
   font-size: 1rem;
@@ -71,40 +72,35 @@ const MainContent = styled.div`
 `;
 
 const App = () => {
-  const [activePage, setActivePage] = useState('/');
-
-  const handleLinkClick = (path) => {
-    setActivePage(path);
-  };
-
+  const location = useLocation();
+  console.log(location)
   return (
     <>
       <Header>
         <HeaderTitle>MyPortfolio</HeaderTitle>
         <NavLinks>
           <NavLink 
-            href="/Portafolio/" 
-            onClick={() => handleLinkClick('/')}
-            className={activePage === '/' ? 'active' : ''}
+            to="../" 
+            className={location.pathname === '/' ? 'active' : ''}
           >
             Home
           </NavLink>
           <NavLink 
-            href="/Portafolio/#/projects" 
-            onClick={() => handleLinkClick('/projects')}
-            className={activePage === '/projects' ? 'active' : ''}
+            to="/projects" 
+            className={location.pathname === '/projects' ? 'active' : ''}
           >
             Projects
           </NavLink>
           <NavLink 
-            href="/Portafolio/#/contact" 
-            onClick={() => handleLinkClick('/contact')}
-            className={activePage === '/contact' ? 'active' : ''}
+            to="/contact" 
+            className={location.pathname === '/contact' ? 'active' : ''}
           >
             Contact
           </NavLink>
         </NavLinks>
       </Header>
+
+
     </>
   );
 };

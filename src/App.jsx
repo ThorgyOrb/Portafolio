@@ -15,10 +15,6 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  #root {
-    width: 100%;
-    height: 100%;
-  }
 `;
 function App() {
   return (

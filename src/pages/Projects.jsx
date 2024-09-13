@@ -35,11 +35,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 91.3vh;
+  min-height: 100vh; /* Cambiado de height a min-height */
   background-color: #121212;
   color: #ffffff;
   text-align: center;
-  overflow: hidden;
+  overflow: hidden; /* Puede ser ajustado si es necesario */
   position: relative;
   padding: 2rem;
 `;
@@ -84,8 +84,10 @@ const Meteor = styled.div`
 
 const Projects = () => {
   const projectList = [
-    { title: 'Project 1', description: 'Description of Project 1', link: '/Portafolio/#/invoicescontrol' },
-    { title: 'Project 2', description: 'Description of Project 2', link: 'https://github.com/username/project2' },
+    { title: 'Administración de Facturas', description: 'Mejora significativa en el rendimiento y eficiencia de una aplicación web para la administración de facturas', link: '/Portafolio/#/invoicescontrol' },
+    { title: 'Control de Salida de Materiales', description: 'Desarrollo de una aplicación web para gestionar la salida de materiales en múltiples plantas.', link: 'https://github.com/username/project2' },
+    { title: 'Escaneo de Facturas', description: 'Implementación de una solución web para escanear y procesar facturas de manera automatizada.', link: 'https://github.com/username/project3' },
+    { title: 'Gestión de Solicitudes de Tiempo Extra', description: 'Diseño de una página web para gestionar solicitudes de tiempo extra y coordinar transporte.', link: 'https://github.com/username/project4' },
     // Añade más proyectos según sea necesario
   ];
 
