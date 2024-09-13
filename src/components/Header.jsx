@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Header = styled.div`
+const Header = styled.header`
   width: 100%;
   height: 60px; /* Altura del encabezado */
   position: fixed;
@@ -14,19 +14,33 @@ const Header = styled.div`
   padding: 0 20px;
   z-index: 1000;
   border-bottom: 1px solid #333; /* Borde inferior para contraste */
-  box-sizing: border-box; /* Incluye padding y border en el cálculo del width */
+  box-sizing: border-box;
+  
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
 `;
 
 const HeaderTitle = styled.h1`
   color: #ffffff; /* Color blanco para el título */
   margin: 0;
   font-size: 1.5rem; /* Tamaño del texto */
-  flex-grow: 1; /* Permite que el título se expanda y ocupe el espacio disponible */
+  white-space: nowrap; /* Evita que el texto se rompa */
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem; /* Tamaño del texto para pantallas pequeñas */
+  }
 `;
 
-const NavLinks = styled.div`
+const NavLinks = styled.nav`
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap; /* Permite que los enlaces se envuelvan en pantallas pequeñas */
+  align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem; /* Reduce el espacio entre enlaces en pantallas pequeñas */
+  }
 `;
 
 const NavLink = styled.a`
@@ -42,6 +56,10 @@ const NavLink = styled.a`
 
   &.active {
     border-bottom: 2px solid #00c853; /* Subrayado para el enlace activo */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem; /* Tamaño del texto para pantallas pequeñas */
   }
 `;
 
