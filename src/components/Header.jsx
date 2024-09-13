@@ -1,127 +1,93 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Sidebar = styled.div`
-  width: ${props => (props.open ? '250px' : '0')};
-  height: 100vh;
+const Header = styled.div`
+  width: 100%;
+  height: 60px; /* Altura del encabezado */
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #1f1f1f; /* Color oscuro para coincidir con el fondo del Home */
-  overflow-x: hidden;
-  transition: width 0.3s ease;
+  background-color: #1f1f1f; /* Color oscuro para el fondo del encabezado */
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  justify-content: space-between;
+  padding: 0 20px;
   z-index: 1000;
-  border-right: 1px solid #333; /* Añadir un borde para un mejor contraste */
+  border-bottom: 1px solid #333; /* Borde inferior para contraste */
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del width */
 `;
 
-const SidebarTitle = styled.h2`
+const HeaderTitle = styled.h1`
   color: #ffffff; /* Color blanco para el título */
-  margin-bottom: 30px;
-  text-align: center;
-  font-size: 2rem; /* Ajustar el tamaño del texto */
+  margin: 0;
+  font-size: 1.5rem; /* Tamaño del texto */
+  flex-grow: 1; /* Permite que el título se expanda y ocupe el espacio disponible */
 `;
 
-const SidebarLink = styled.a`
-  padding: 10px 15px;
+const NavLinks = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const NavLink = styled.a`
+  padding: 10px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1rem;
   color: #ffffff; /* Color blanco para el texto del enlace */
-  display: block;
   transition: 0.3s;
-  width: 100%;
-  text-align: center;
-  background-color: ${props => (props.$active ? '#333' : 'transparent')}; /* Color de fondo para el enlace activo */
   
   &:hover {
-    background-color: #444; /* Color de fondo al pasar el ratón */
+    color: #00c853; /* Color verde para el hover */
+  }
+
+  &.active {
+    border-bottom: 2px solid #00c853; /* Subrayado para el enlace activo */
   }
 `;
 
 const MainContent = styled.div`
-  margin-left: ${props => (props.open ? '250px' : '0')};
-  transition: margin-left 0.3s ease;
-  flex-grow: 1;
-  overflow: auto;
+  margin-top: 60px; /* Altura del encabezado para evitar superposición */
+  padding: 20px;
   background-color: #121212; /* Color de fondo oscuro para el contenido principal */
-`;
-
-const ToggleButton = styled.button`
-  position: fixed;
-  top: 20px;
-  left: ${props => (props.open ? '250px' : '10px')};
-  transition: left 0.3s ease, filter 0.3s ease;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1100;
-  border-radius: 5px;
-  position: absolute;
-
-  /* Aplicamos un brillo por defecto cuando no está en hover */
-  filter: brightness(1) drop-shadow(2px 2px 2px #888);
-
-  /* Animación de brillo constante */
-  animation: glow 1.5s ease-in-out infinite alternate;
-
-  /* Al pasar el ratón, se detiene la animación y se fija el brillo directo */
-  &:hover {
-    background-color: #444;
-    animation: none;
-    filter: brightness(1.5) drop-shadow(5px 5px 10px #fff);
-  }
-
-  /* Definición de la animación de brillo */
-  @keyframes glow {
-    from {
-      /* Menos brillo en la animación */
-      filter: brightness(1) drop-shadow(2px 2px 5px #666);
-    }
-    to {
-      /* Más brillo en la animación */
-      filter: brightness(1.3) drop-shadow(4px 4px 8px #bbb);
-    }
-  }
-`;
-
-
-const Layout = styled.div`
-  display: flex;
+  min-height: 100vh; /* Asegura que el contenido principal ocupe toda la altura de la página */
 `;
 
 const App = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activePage, setActivePage] = useState('/');
 
-  const handleLinkClick = () => {
-    setSidebarOpen(false);
+  const handleLinkClick = (path) => {
+    setActivePage(path);
   };
 
   return (
-    <Layout>
-      <Sidebar open={sidebarOpen}>
-        <SidebarTitle>MyPortfolio</SidebarTitle>
-        <SidebarLink href="/Portafolio/" onClick={handleLinkClick} $active={window.location.pathname === '/'}>
-          Home
-        </SidebarLink>
-        <SidebarLink href="/Portafolio/#/projects" onClick={handleLinkClick} $active={window.location.pathname === '/projects'}>
-          Projects
-        </SidebarLink>
-        <SidebarLink href="/Portafolio/#/contact" onClick={handleLinkClick} $active={window.location.pathname === '/contact'}>
-          Contact
-        </SidebarLink>
-      </Sidebar>
-      <MainContent open={sidebarOpen}>
-        <ToggleButton open={sidebarOpen} onClick={() => setSidebarOpen(!sidebarOpen)} aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}>
-          {sidebarOpen ? '✖' : '☰'}
-        </ToggleButton>
-        {/* Aquí va el contenido de las páginas */}
-      </MainContent>
-    </Layout>
+    <>
+      <Header>
+        <HeaderTitle>MyPortfolio</HeaderTitle>
+        <NavLinks>
+          <NavLink 
+            href="/Portafolio/" 
+            onClick={() => handleLinkClick('/')}
+            className={activePage === '/' ? 'active' : ''}
+          >
+            Home
+          </NavLink>
+          <NavLink 
+            href="/Portafolio/#/projects" 
+            onClick={() => handleLinkClick('/projects')}
+            className={activePage === '/projects' ? 'active' : ''}
+          >
+            Projects
+          </NavLink>
+          <NavLink 
+            href="/Portafolio/#/contact" 
+            onClick={() => handleLinkClick('/contact')}
+            className={activePage === '/contact' ? 'active' : ''}
+          >
+            Contact
+          </NavLink>
+        </NavLinks>
+      </Header>
+    </>
   );
 };
 
