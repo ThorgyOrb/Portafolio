@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
 
@@ -74,6 +74,18 @@ const CloseButton = styled.button`
 
 const CertificationCard = ({ title, image, pdf }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Ajusta el tamaño de pantalla según tus necesidades
+    };
+
+    handleResize(); // Inicializa el estado
+    window.addEventListener('resize', handleResize); // Actualiza el estado en el cambio de tamaño
+
+    return () => window.removeEventListener('resize', handleResize); // Limpieza del evento
+  }, []);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -94,12 +106,16 @@ const CertificationCard = ({ title, image, pdf }) => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={{ content: { maxWidth: 'auto', margin: 'auto', backgroundColor: '#1e1e1e' } }}
+        style={{ content: { maxWidth: '90vw', maxHeight: '90vh', margin: 'auto', backgroundColor: '#1e1e1e' } }}
         ariaHideApp={false}
       >
         <ModalContent>
           <CloseButton onClick={closeModal}>X</CloseButton>
-          <embed src={pdf} type="application/pdf" width="100%" height="780px" />
+          {isMobile ? (
+            <a href={pdf} target="_blank" rel="noopener noreferrer">Ver PDF</a>
+          ) : (
+            <iframe src={pdf} width="100%" height="780px" frameBorder="0" />
+          )}
         </ModalContent>
       </Modal>
     </>

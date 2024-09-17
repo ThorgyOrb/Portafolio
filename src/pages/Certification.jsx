@@ -14,6 +14,7 @@ const shineAnimation = keyframes`
     background-position: -200%;
   }
 `;
+
 const meteorShower = keyframes`
   0% {
     transform: translate(100vw, -100vh) rotate(45deg);
@@ -27,6 +28,7 @@ const meteorShower = keyframes`
     opacity: 0;
   }
 `;
+
 // Contenedor principal para las certificaciones
 const CertificationsContainer = styled.div`
   display: flex;
@@ -44,7 +46,7 @@ const CertificationsContainer = styled.div`
 
 // Título de la página
 const PageTitle = styled.h1`
-font-size: 3rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
   background: linear-gradient(
     90deg,
@@ -91,12 +93,14 @@ const CertificationsPage = () => {
     { title: 'Certificación 2', pdf: '/certifications/cert2.pdf' },
     { title: 'Certificación 3', pdf: '/certifications/cert3.pdf' },
   ];
+  
   const meteors = Array.from({ length: 20 }, (_, i) => (
     <Meteor key={i} delay={Math.random() * 10} left={Math.random() * 100} />
   ));
+
   return (
     <CertificationsContainer>
-        {meteors}
+      {meteors}
       <PageTitle>Certifications</PageTitle>
       <CertificationsGrid>
         {certifications.map((cert, index) => (
