@@ -90,10 +90,10 @@ const Meteor = styled.div`
 const CertificationsPage = () => {
   const certifications = [
     { title: 'Essentials in Python', image: `${process.env.PUBLIC_URL}/assets/pictures/cer1.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Essentials in Python.pdf` },
-    { title: 'Essentials in C++', pdf: '/certifications/cert2.pdf' },
-    { title: 'Essentials in C', pdf: '/certifications/cert3.pdf' },
-    { title: 'NDG Linux Essentials', pdf: '/certifications/cert3.pdf' },
-    { title: 'Networking Essentials', pdf: '/certifications/cert3.pdf' },
+    { title: 'Essentials in C', image: `${process.env.PUBLIC_URL}/assets/pictures/cer2.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Essentials in C.pdf`  },
+    { title: 'Essentials in C++', image: `${process.env.PUBLIC_URL}/assets/pictures/cer3.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Essentials in C++.pdf`  },   
+    { title: 'NDG Linux Essentials', image: `${process.env.PUBLIC_URL}/assets/pictures/cer4.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/NDG Linux Essentials.pdf`  },
+    { title: 'Networking Essentials', image: `${process.env.PUBLIC_URL}/assets/pictures/cer5.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Networking Essentials.pdf`  },
   ];
   
   const meteors = Array.from({ length: 20 }, (_, i) => (
