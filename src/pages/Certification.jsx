@@ -90,8 +90,10 @@ const Meteor = styled.div`
 const CertificationsPage = () => {
   const certifications = [
     { title: 'Essentials in Python', image: `${process.env.PUBLIC_URL}/assets/pictures/cer1.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Essentials in Python.pdf` },
-    { title: 'Certificación 2', pdf: '/certifications/cert2.pdf' },
-    { title: 'Certificación 3', pdf: '/certifications/cert3.pdf' },
+    { title: 'Essentials in C++', pdf: '/certifications/cert2.pdf' },
+    { title: 'Essentials in C', pdf: '/certifications/cert3.pdf' },
+    { title: 'NDG Linux Essentials', pdf: '/certifications/cert3.pdf' },
+    { title: 'Networking Essentials', pdf: '/certifications/cert3.pdf' },
   ];
   
   const meteors = Array.from({ length: 20 }, (_, i) => (
