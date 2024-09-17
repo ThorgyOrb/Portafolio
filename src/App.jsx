@@ -8,6 +8,7 @@ import Header from './components/Header';
 import InvoicesControl from './pages/InvoicesControl';
 import { createGlobalStyle } from 'styled-components';
 import Certification from './pages/Certification';
+import ScrollToTop from './components/ScrollToTop'; // Importa el componente ScrollToTop
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -21,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <Router>
+      <ScrollToTop /> 
       <GlobalStyle />
       <Header />
       <Routes>

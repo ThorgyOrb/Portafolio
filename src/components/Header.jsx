@@ -1,46 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FaBars, FaChevronDown } from 'react-icons/fa'; // Importa iconos de react-icons
 
 const Header = styled.header`
   width: 100%;
-  height: 60px; /* Altura del encabezado */
+  height: 60px;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #1f1f1f; /* Color oscuro para el fondo del encabezado */
+  background-color: #1f1f1f;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   z-index: 1000;
-  border-bottom: 1px solid #333; /* Borde inferior para contraste */
+  border-bottom: 1px solid #333;
   box-sizing: border-box;
-  
+
   @media (max-width: 768px) {
-    padding: 0 10px;
+    height: auto;
   }
 `;
 
 const HeaderTitle = styled.h1`
-  color: #ffffff; /* Color blanco para el título */
+  color: #ffffff;
   margin: 0;
-  font-size: 1.5rem; /* Tamaño del texto */
-  white-space: nowrap; /* Evita que el texto se rompa */
-  
+  font-size: 1.5rem;
+  white-space: nowrap;
+
   @media (max-width: 768px) {
-    font-size: 1.2rem; /* Tamaño del texto para pantallas pequeñas */
+    font-size: 1.2rem;
   }
 `;
 
 const NavLinks = styled.nav`
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap; /* Permite que los enlaces se envuelvan en pantallas pequeñas */
   align-items: center;
 
   @media (max-width: 768px) {
-    gap: 0.5rem; /* Reduce el espacio entre enlaces en pantallas pequeñas */
+    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
   }
 `;
 
@@ -48,59 +51,86 @@ const NavLink = styled(Link)`
   padding: 10px;
   text-decoration: none;
   font-size: 1rem;
-  color: #ffffff; /* Color blanco para el texto del enlace */
+  color: #ffffff;
   transition: 0.3s;
-  
+
   &:hover {
-    color: #00c853; /* Color verde para el hover */
+    color: #00c853;
   }
 
   &.active {
-    border-bottom: 2px solid #00c853; /* Subrayado para el enlace activo */
+    border-bottom: 2px solid #00c853;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem; /* Tamaño del texto para pantallas pequeñas */
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+`;
+
+const MenuIcon = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
   }
 `;
 
 const MainContent = styled.div`
-  margin-top: 60px; /* Altura del encabezado para evitar superposición */
+  margin-top: 60px;
   padding: 20px;
-  background-color: #121212; /* Color de fondo oscuro para el contenido principal */
-  min-height: 100vh; /* Asegura que el contenido principal ocupe toda la altura de la página */
+  background-color: #121212;
+  min-height: 100vh;
 `;
 
 const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Controla el estado del menú
   const location = useLocation();
-  console.log(location)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false); // Función para cerrar el menú
+  };
+
   return (
     <>
       <Header>
         <HeaderTitle>MyPortfolio</HeaderTitle>
-        <NavLinks>
+        {/* Icono de menú para pantallas pequeñas */}
+        <MenuIcon onClick={toggleMenu}>
+          {isMenuOpen ? <FaChevronDown /> : <FaBars />}
+        </MenuIcon>
+        {/* Links de navegación */}
+        <NavLinks isOpen={isMenuOpen}>
           <NavLink 
-            to="../" 
-            className={location.pathname === '/' ? 'active' : ''}
+            to="/" 
+            className={location.pathname === '/' ? 'active' : ''} 
+            onClick={closeMenu}  /* Cierra el menú al hacer clic */
           >
             Home
           </NavLink>
           <NavLink 
             to="/projects" 
-            className={location.pathname === '/projects' ? 'active' : ''}
+            className={location.pathname === '/projects' ? 'active' : ''} 
+            onClick={closeMenu} /* Cierra el menú al hacer clic */
           >
             Projects
           </NavLink>
           <NavLink 
             to="/certification" 
-            className={location.pathname === '/certification' ? 'active' : ''}
+            className={location.pathname === '/certification' ? 'active' : ''} 
+            onClick={closeMenu} /* Cierra el menú al hacer clic */
           >
             Certifications
           </NavLink>
         </NavLinks>
       </Header>
-
-
     </>
   );
 };
