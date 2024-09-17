@@ -97,6 +97,12 @@ const App = () => {
           >
             Contact
           </NavLink>
+          <NavLink 
+            to="/certification" 
+            className={location.pathname === '/certification' ? 'active' : ''}
+          >
+            Certifications
+          </NavLink>
         </NavLinks>
       </Header>
 

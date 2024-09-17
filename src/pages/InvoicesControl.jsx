@@ -1,7 +1,6 @@
 import React from 'react';
 import ProjectDetail from '../components/ProjectDetail';
 
-// Datos del proyecto (aquí puedes reemplazar con datos reales o dinámicos)
 const projectData = {
   title: 'Administración de Facturas',
   description: 'Optimización de una aplicación de administración de facturas con un rendimiento de carga mejorado en un 96.88% y un uso de recursos reducido en un 18.91%.',

@@ -7,6 +7,8 @@ import Contact from './pages/Contact';
 import Header from './components/Header';
 import InvoicesControl from './pages/InvoicesControl';
 import { createGlobalStyle } from 'styled-components';
+import Certification from './pages/Certification';
+
 const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
@@ -26,6 +28,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/invoicescontrol" element={<InvoicesControl />} />
+        <Route path="/certification" element={<Certification/>} />
       </Routes>
     </Router>
   );
