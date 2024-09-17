@@ -92,12 +92,6 @@ const App = () => {
             Projects
           </NavLink>
           <NavLink 
-            to="/contact" 
-            className={location.pathname === '/contact' ? 'active' : ''}
-          >
-            Contact
-          </NavLink>
-          <NavLink 
             to="/certification" 
             className={location.pathname === '/certification' ? 'active' : ''}
           >

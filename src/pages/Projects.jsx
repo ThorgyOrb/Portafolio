@@ -1,9 +1,7 @@
 import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import ProjectCard from '../components/ProjectCard';
-import { FaProjectDiagram } from 'react-icons/fa';
 
-// Animación de brillo del título
 const shineAnimation = keyframes`
   0% {
     background-position: -200%;
@@ -88,7 +86,6 @@ const Projects = () => {
     { title: 'Control de Salida de Materiales', description: 'Desarrollo de una aplicación web para gestionar la salida de materiales en múltiples plantas.', link: 'https://github.com/username/project2' },
     { title: 'Escaneo de Facturas', description: 'Implementación de una solución web para escanear y procesar facturas de manera automatizada.', link: 'https://github.com/username/project3' },
     { title: 'Gestión de Solicitudes de Tiempo Extra', description: 'Diseño de una página web para gestionar solicitudes de tiempo extra y coordinar transporte.', link: 'https://github.com/username/project4' },
-    // Añade más proyectos según sea necesario
   ];
 
   const meteors = Array.from({ length: 20 }, (_, i) => (
