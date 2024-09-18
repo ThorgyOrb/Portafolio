@@ -101,7 +101,7 @@ const App = () => {
   return (
     <>
       <Header>
-        <HeaderTitle>MyPortfolio</HeaderTitle>
+        <HeaderTitle>Mi Portfolio</HeaderTitle>
         {/* Icono de menú para pantallas pequeñas */}
         <MenuIcon onClick={toggleMenu}>
           {isMenuOpen ? <FaChevronDown /> : <FaBars />}
@@ -113,21 +113,21 @@ const App = () => {
             className={location.pathname === '/' ? 'active' : ''} 
             onClick={closeMenu}  /* Cierra el menú al hacer clic */
           >
-            Home
+            Inicio
           </NavLink>
           <NavLink 
             to="/projects" 
             className={location.pathname === '/projects' ? 'active' : ''} 
             onClick={closeMenu} /* Cierra el menú al hacer clic */
           >
-            Projects
+            Proyectos
           </NavLink>
           <NavLink 
             to="/certification" 
             className={location.pathname === '/certification' ? 'active' : ''} 
             onClick={closeMenu} /* Cierra el menú al hacer clic */
           >
-            Certifications
+            Certificaciones
           </NavLink>
         </NavLinks>
       </Header>

@@ -47,7 +47,6 @@ const Title = styled.h3`
 const ModalContent = styled.div`
   background-color: #1e1e1e; /* Fondo oscuro para el modal */
   padding: 2rem;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,12 +102,14 @@ const CertificationCard = ({ title, image, pdf }) => {
       </CardContainer>
 
       {/* Modal que muestra el PDF */}
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={{ content: { maxWidth: '90vw', maxHeight: '90vh', margin: 'auto', backgroundColor: '#1e1e1e' } }}
+        style={{ content: { maxWidth: '90vw', maxHeight: '90vh', margin: 'auto', backgroundColor: '#1e1e1e', marginTop: '40px'} }}
         ariaHideApp={false}
       >
+        
         <ModalContent>
           <CloseButton onClick={closeModal}>X</CloseButton>
           {isMobile ? (
@@ -117,7 +118,9 @@ const CertificationCard = ({ title, image, pdf }) => {
             <iframe src={pdf} width="100%" height="780px" frameBorder="0" />
           )}
         </ModalContent>
+        
       </Modal>
+ 
     </>
   );
 };

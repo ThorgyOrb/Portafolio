@@ -7,7 +7,9 @@
 .App {
   text-align: center;
 }
-
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -55,6 +57,4 @@
   gap: 16px;
 }
 
-.Home-Title{
-  font-family: 'Helvetica Neue';
-}
+

@@ -89,11 +89,18 @@ const Meteor = styled.div`
 
 const CertificationsPage = () => {
   const certifications = [
+    { title: 'Unity Programmer C#', image: `${process.env.PUBLIC_URL}/assets/pictures/cer7.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Programmer.pdf`  },
+    { title: 'Databases', image: `${process.env.PUBLIC_URL}/assets/pictures/cer8.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Databases.pdf`  },
     { title: 'Essentials in Python', image: `${process.env.PUBLIC_URL}/assets/pictures/cer1.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Essentials in Python.pdf` },
     { title: 'Essentials in C', image: `${process.env.PUBLIC_URL}/assets/pictures/cer2.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Essentials in C.pdf`  },
     { title: 'Essentials in C++', image: `${process.env.PUBLIC_URL}/assets/pictures/cer3.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Essentials in C++.pdf`  },   
     { title: 'NDG Linux Essentials', image: `${process.env.PUBLIC_URL}/assets/pictures/cer4.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/NDG Linux Essentials.pdf`  },
+    { title: 'SCRUM Foundation', image: `${process.env.PUBLIC_URL}/assets/pictures/cer12.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/certificate.pdf`  },
     { title: 'Networking Essentials', image: `${process.env.PUBLIC_URL}/assets/pictures/cer5.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Networking Essentials.pdf`  },
+    { title: 'VR Developer', image: `${process.env.PUBLIC_URL}/assets/pictures/cer6.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/VR Developer.pdf`  },
+    { title: 'Office Excel 2013', image: `${process.env.PUBLIC_URL}/assets/pictures/cer9.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Office Excel 2013.pdf`  },
+    { title: 'Office Word 2013', image: `${process.env.PUBLIC_URL}/assets/pictures/cer10.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Office Word 2013.pdf`  },
+    { title: 'Office PowerPoint 2013', image: `${process.env.PUBLIC_URL}/assets/pictures/cer11.png`, pdf: `${process.env.PUBLIC_URL}/assets/attachments/Office PowerPoint 2013.pdf`  },
   ];
   
   const meteors = Array.from({ length: 20 }, (_, i) => (
@@ -103,7 +110,7 @@ const CertificationsPage = () => {
   return (
     <CertificationsContainer>
       {meteors}
-      <PageTitle>Certifications</PageTitle>
+      <PageTitle>Certificaciones</PageTitle>
       <CertificationsGrid>
         {certifications.map((cert, index) => (
           <CertificationCard key={index} title={cert.title} image={cert.image} pdf={cert.pdf} />

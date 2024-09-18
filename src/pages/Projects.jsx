@@ -95,7 +95,7 @@ const Projects = () => {
   return (
     <Container>
       {meteors}
-      <Title>My Projects</Title>
+      <Title>Mis proyectos</Title>
       <ProjectGrid>
         {projectList.map((project, index) => (
           <ProjectCard key={index} {...project} />
