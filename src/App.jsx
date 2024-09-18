@@ -6,6 +6,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Header from './components/Header';
 import InvoicesControl from './pages/InvoicesControl';
+import MaterialControl from './pages/MaterialControl';  
 import { createGlobalStyle } from 'styled-components';
 import Certification from './pages/Certification';
 import ScrollToTop from './components/ScrollToTop'; // Importa el componente ScrollToTop
@@ -31,6 +32,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/invoicescontrol" element={<InvoicesControl />} />
         <Route path="/certification" element={<Certification/>} />
+        <Route path='/materialcontrol' element={<MaterialControl />} />
       </Routes>
     </Router>
   );

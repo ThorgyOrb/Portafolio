@@ -153,7 +153,8 @@ const AchievementTitle = styled.h2`
   font-size: 1.8rem;
   margin-bottom: 1rem;
   margin-top: -1rem;
-  text-align: center; // Centramos el título de logros
+  text-align: center; 
+  white-space: pre-line; 
 `;
 
 const ModalOverlay = styled.div`

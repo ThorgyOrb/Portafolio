@@ -83,7 +83,7 @@ const Meteor = styled.div`
 const Projects = () => {
   const projectList = [
     { title: 'Administración de Facturas', description: 'Mejora significativa en el rendimiento y eficiencia de una aplicación web para la administración de facturas', link: '/Portafolio/#/invoicescontrol' },
-    { title: 'Control de Salida de Materiales', description: 'Desarrollo de una aplicación web para gestionar la salida de materiales en múltiples plantas.', link: 'https://github.com/username/project2' },
+    { title: 'Control de Salida de Materiales', description: 'Desarrollo de una aplicación web para gestionar la salida de materiales en múltiples plantas.', link: '/Portafolio/#/Materialcontrol' },
     { title: 'Escaneo de Facturas', description: 'Implementación de una solución web para escanear y procesar facturas de manera automatizada.', link: 'https://github.com/username/project3' },
     { title: 'Gestión de Solicitudes de Tiempo Extra', description: 'Diseño de una página web para gestionar solicitudes de tiempo extra y coordinar transporte.', link: 'https://github.com/username/project4' },
   ];
