@@ -102,19 +102,19 @@ const Gallery = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
+  justify-content: center; // Asegura que los elementos estén centrados
 `;
 
 const GalleryItem = styled.div`
   position: relative;
-  width: 300px;
-  height: 200px;
+  width: 100%; // Ajustar para pantallas más pequeñas
+  max-width: 300px; // Máximo ancho para pantallas más grandes
+  height: auto; // Ajustar altura automáticamente
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 `;
-
 
 const GalleryImage = styled.img`
   width: 100%;
