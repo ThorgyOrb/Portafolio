@@ -47,11 +47,13 @@ const Description = styled.p`
   margin: 1rem 0;
   max-width: 800px;
   text-align: center;
+  white-space: pre-line; 
 `;
+
 
 const DetailSection = styled.div`
   position: relative;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 2rem auto;
   padding: 1.5rem;
   background-color: #1a1a1a;
@@ -105,7 +107,7 @@ const Gallery = styled.div`
 
 const GalleryItem = styled.div`
   position: relative;
-  width: 320px;
+  width: 300px;
   height: 200px;
   overflow: hidden;
   border-radius: 10px;
