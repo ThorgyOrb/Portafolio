@@ -1,5 +1,3 @@
-// src/components/LanguageChart.js
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
@@ -20,9 +18,11 @@ const Container = styled.div`
 `;
 
 const ChartContainer = styled.div`
-  width: 80%;  /* Aumenta el ancho de la gráfica */
-  max-width: 1200px;  /* Elimina el límite de 600px */
-  margin: 2rem;  /* Aumenta el margen */
+  width: 80%;
+  max-width: 1200px;
+  margin: 2rem;
+  height: 60vh;  /* Ajusta la altura en función del viewport */
+  min-height: 400px;  /* Tamaño mínimo para pantallas pequeñas */
 `;
 
 const LanguageChart = ({ data }) => {
@@ -50,7 +50,7 @@ const LanguageChart = ({ data }) => {
 
       const animateGradient = () => {
         if (!chartArea) return;
-        
+
         chart.data.datasets[0].backgroundColor = createAnimatedGradient(ctx, chartArea);
         chart.update();
         setGradientOffset(prev => prev + 0.02); // Incremento para la animación
@@ -70,14 +70,15 @@ const LanguageChart = ({ data }) => {
         data: data.map(item => item.percentage),
         borderColor: '#ffffff',
         borderWidth: 2,
-        barPercentage: 0.9,  // Ajuste del grosor de las barras
-        categoryPercentage: 0.6,  // Ajuste del espacio entre barras
+        barPercentage: 0.9,  
+        categoryPercentage: 0.6,
+        minBarLength: 10,  // Añadir un tamaño mínimo para las barras
       },
     ],
   };
 
   const options = {
-    indexAxis: 'y',  // Barras horizontales
+    indexAxis: 'y',  
     plugins: {
       legend: {
         display: false,
@@ -98,7 +99,7 @@ const LanguageChart = ({ data }) => {
         ticks: {
           color: '#ffffff',
           font: {
-            size: 14,  // Aumenta el tamaño del texto en el eje X
+            size: 14,  
           },
         },
         grid: {
@@ -111,7 +112,7 @@ const LanguageChart = ({ data }) => {
         ticks: {
           color: '#ffffff',
           font: {
-            size: 16,  // Aumenta el tamaño del texto en el eje Y
+            size: 16,  
           },
         },
         grid: {
@@ -119,8 +120,9 @@ const LanguageChart = ({ data }) => {
         },
       },
     },
+    maintainAspectRatio: false,  // Desactiva mantener la proporción para ajustarlo mejor al contenedor
     animation: {
-      duration: 0,  // Desactiva la animación predeterminada para permitir la animación manual
+      duration: 0,  
     },
   };
 
@@ -130,13 +132,6 @@ const LanguageChart = ({ data }) => {
       <ChartContainer>
         <Bar ref={chartRef} data={chartData} options={options} />
       </ChartContainer>
-      <ul>
-        {data.map((item, index) => (
-          <li key={index} style={{ color: '#ffffff' }}>
-            {item.language}: {item.percentage}%
-          </li>
-        ))}
-      </ul>
     </Container>
   );
 };
