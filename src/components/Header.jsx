@@ -129,6 +129,13 @@ const App = () => {
           >
             Certificaciones
           </NavLink>
+          <NavLink 
+            to="/languagechart" 
+            className={location.pathname === '/languagechart' ? 'active' : ''} 
+            onClick={closeMenu} /* Cierra el menú al hacer clic */
+          >
+            Lenguajes
+          </NavLink>
         </NavLinks>
       </Header>
     </>

@@ -12,7 +12,7 @@ import PDFSplit from './pages/PDFSplit';
 import { createGlobalStyle } from 'styled-components';
 import Certification from './pages/Certification';
 import ScrollToTop from './components/ScrollToTop'; 
-
+import LanguageChart from './pages/LanguageChart';
 const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
@@ -37,6 +37,7 @@ function App() {
         <Route path='/materialcontrol' element={<MaterialControl />} />
         <Route path='/pdfsplit' element={<PDFSplit />} />
         <Route path='/overtimerequest' element={<OvetimeRequest />} />
+        <Route path='/languagechart' element={<LanguageChart />} />
       </Routes>
     </Router>
   );

@@ -10,10 +10,10 @@ const projectData = {
   images: [
     { src: '/Portafolio/assets/pictures/InvoicesControl/invoices1.png', alt: 'Captura de Pantalla 1', description: 'Pantalla principal panel de control.' },
     { src: '/Portafolio/assets/pictures/InvoicesControl/invoices2.png', alt: 'Captura de Pantalla 2', description: 'Vista detallada de facturas administrador.' },
-    { src: '/Portafolio/assets/pictures/InvoicesControl/invoices3.png', alt: 'Captura de Pantalla 3', description: 'Dashboard' },
+    { src: '/Portafolio/assets/pictures/InvoicesControl/invoices3.png', alt: 'Captura de Pantalla 3', description: 'Dashboard.s' },
     { src: '/Portafolio/assets/pictures/InvoicesControl/invoices4.png', alt: 'Captura de Pantalla 4', description: 'Pantalla de configuración.' },
     { src: '/Portafolio/assets/pictures/InvoicesControl/invoices5.png', alt: 'Captura de Pantalla 5', description: 'Vista de facturación usuarios.' },
-    { src: '/Portafolio/assets/pictures/InvoicesControl/invoices6.png', alt: 'Captura de Pantalla 6', description: 'Modal de creación de factura.' },
+    { src: '/Portafolio/assets/pictures/InvoicesControl/invoices6.png', alt: 'Captura de Pantalla 62', description: 'Modal de creación de factura.' },
   ],
 };
 
