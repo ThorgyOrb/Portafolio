@@ -7,9 +7,11 @@ import Contact from './pages/Contact';
 import Header from './components/Header';
 import InvoicesControl from './pages/InvoicesControl';
 import MaterialControl from './pages/MaterialControl';  
+import OvetimeRequest from './pages/OvertimeRequest';
+import PDFSplit from './pages/PDFSplit';
 import { createGlobalStyle } from 'styled-components';
 import Certification from './pages/Certification';
-import ScrollToTop from './components/ScrollToTop'; // Importa el componente ScrollToTop
+import ScrollToTop from './components/ScrollToTop'; 
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -33,6 +35,8 @@ function App() {
         <Route path="/invoicescontrol" element={<InvoicesControl />} />
         <Route path="/certification" element={<Certification/>} />
         <Route path='/materialcontrol' element={<MaterialControl />} />
+        <Route path='/pdfsplit' element={<PDFSplit />} />
+        <Route path='/overtimerequest' element={<OvetimeRequest />} />
       </Routes>
     </Router>
   );
