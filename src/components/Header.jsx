@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaBars, FaChevronDown } from 'react-icons/fa'; // Importa iconos de react-icons
+import { FaBars, FaChevronDown } from 'react-icons/fa'; 
 
 const Header = styled.header`
   width: 100%;
@@ -101,7 +101,7 @@ const App = () => {
   return (
     <>
       <Header>
-        <HeaderTitle>Mi Portfolio</HeaderTitle>
+        <HeaderTitle>Mi Portafolio</HeaderTitle>
         {/* Icono de menú para pantallas pequeñas */}
         <MenuIcon onClick={toggleMenu}>
           {isMenuOpen ? <FaChevronDown /> : <FaBars />}
@@ -111,28 +111,28 @@ const App = () => {
           <NavLink 
             to="/" 
             className={location.pathname === '/' ? 'active' : ''} 
-            onClick={closeMenu}  /* Cierra el menú al hacer clic */
+            onClick={closeMenu} 
           >
             Inicio
           </NavLink>
           <NavLink 
             to="/projects" 
             className={location.pathname === '/projects' ? 'active' : ''} 
-            onClick={closeMenu} /* Cierra el menú al hacer clic */
+            onClick={closeMenu} 
           >
             Proyectos
           </NavLink>
           <NavLink 
             to="/certification" 
             className={location.pathname === '/certification' ? 'active' : ''} 
-            onClick={closeMenu} /* Cierra el menú al hacer clic */
+            onClick={closeMenu} 
           >
             Certificaciones
           </NavLink>
           <NavLink 
             to="/languagechart" 
             className={location.pathname === '/languagechart' ? 'active' : ''} 
-            onClick={closeMenu} /* Cierra el menú al hacer clic */
+            onClick={closeMenu} 
           >
             Lenguajes
           </NavLink>

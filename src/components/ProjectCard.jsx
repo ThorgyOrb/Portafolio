@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
-// Estilos para la tarjeta del proyecto
 const Card = styled.div`
   background-color: #1e1e1e;
   border-radius: 10px;
@@ -45,14 +44,13 @@ const ProjectLink = styled.a`
   }
 `;
 
-// Componente de tarjeta de proyecto
 const ProjectCard = ({ title, description, link }) => {
   return (
     <Card>
       <Title>{title}</Title>
       <Description>{description}</Description>
       <ProjectLink href={link} target="_blank" rel="noopener noreferrer">
-        View Project <FaExternalLinkAlt />
+        Ver Proyecto <FaExternalLinkAlt />
       </ProjectLink>
     </Card>
   );
